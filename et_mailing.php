@@ -15,7 +15,6 @@ define( 'AEM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'AEM_VERSION', "1.0.0" );
 define( 'AEM_DOMAIN', "et_mailing" );
 
-require_once AEM_PLUGIN_PATH . '/update.php';
 require_once AEM_PLUGIN_PATH.'/inc/class-autoload.php';
 require_once AEM_PLUGIN_PATH.'/inc/aem-functions.php';
 require_once AEM_PLUGIN_PATH.'/inc/class-aem-util.php';
