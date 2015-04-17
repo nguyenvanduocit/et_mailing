@@ -29,38 +29,23 @@ class AEM_Mailing
         return $this->module_factory;
     }
 
-    function get_option ()
-    {
-        if ( is_null( $this->option ) ) {
-            $this->option = new AEM_Mailing_Option();
-        }
-
-        return $this->option;
-    }
-
+    /*
+     * Init hook
+     */
     function init_hook ()
     {
-        $modules = AEM()->module_factory()->get_modules();
-        foreach ( $modules as $module ) {
-            $module->init_hook();
-        }
-
-        if ( is_admin() ) {
-            add_filter( 'et_get_translate_string', array ( $this, 'add_translate_string' ) );
-        }
-
+        //Advoid conflic with theme use appengine
+        add_action( "after_setup_theme", array ( $this, "init_module_hook" ) );
     }
 
-    function add_translate_string ( $entries )
+    /**
+     * Call current init_hook() to init their hook
+     */
+    function init_module_hook ()
     {
-        $lang_path = AEM_PLUGIN_PATH.'/lang/ae_mailing.po';
-        if ( file_exists( $lang_path ) ) {
-            $pot = new PO();
-            $pot->import_from_file( $lang_path, TRUE );
-
-            return array_merge( $entries, $pot->entries );
+        $module = AEM()->module_factory()->get_current_module();
+        if ( $module ) {
+            $module->init_hook();
         }
-
-        return $entries;
     }
 }

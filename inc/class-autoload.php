@@ -1,5 +1,5 @@
 <?php
-
+//TODO : move to symphony classloader
 if ( !class_exists( 'AEM_Autoload' ) ) {
 
     /**
@@ -38,7 +38,6 @@ if ( !class_exists( 'AEM_Autoload' ) ) {
             } else {
                 return;
             }
-
             if ( $path && is_readable( $path.$file ) ) {
                 include_once( $path.$file );
                 return;

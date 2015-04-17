@@ -15,12 +15,8 @@ class AEM_Module_Mailgun_Client extends Mailgun
         $this->workingDomain = $domain;
     }
 
-    public function sendMessage ( $postData, $postFiles = array () )
+    public function enqueueMessage( $postData, $postFiles = array () )
     {
-        parent::sendMessage( $this->workingDomain, $postData, $postFiles );
-    }
-
-    public function BatchMessage($workingDomain, $autoSend = true){
-        parent::BatchMessage( $workingDomain, $autoSend );
+        return parent::sendMessage( $this->workingDomain, $postData, $postFiles );
     }
 }
