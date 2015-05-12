@@ -66,6 +66,10 @@ class AEM_Admin extends AE_Base
         foreach ( $pre_page as $page ) {
             //Get section of $page
             $sections = $page['container']->get_sections();
+            if(!is_array($sections))
+            {
+                $sections = array($sections);
+            }
             //Foreach all section, add section to single page
             foreach ( $sections as $section ) {
 
