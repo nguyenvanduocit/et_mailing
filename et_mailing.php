@@ -1,5 +1,4 @@
 <?php
-
 /*
 Plugin Name: ET Mailing
 Plugin URI: https://www.enginethemes.com/extensions/
