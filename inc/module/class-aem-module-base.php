@@ -41,6 +41,7 @@ abstract class AEM_Module_Base
 
     protected function process_header ( $headers )
     {
+        global $current_user;
         if ( empty( $headers ) ) {
             $header_data = array ();
         } else {
@@ -51,6 +52,7 @@ abstract class AEM_Module_Base
             } else {
                 $tempheaders = $headers;
             }
+            $header_data['Reply-To'] = $current_user->display_name . ' <' . $current_user->user_email . '>' . "\r\n";
             $header_data['cc'] = array ();
             $header_data['bcc'] = array ();
             // If it's actually got contents
