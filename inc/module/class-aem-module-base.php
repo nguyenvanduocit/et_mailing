@@ -51,10 +51,7 @@ abstract class AEM_Module_Base
                 $tempheaders = explode( "\n", str_replace( "\r\n", "\n", $headers ) );
             } else {
                 $tempheaders = $headers;
-            }
-            if( $current_user ){
-                $header_data['Reply-To'] = $current_user->display_name . ' <' . $current_user->user_email . '>' . "\r\n";
-            }
+            }           
             $header_data['cc'] = array ();
             $header_data['bcc'] = array ();
             // If it's actually got contents
