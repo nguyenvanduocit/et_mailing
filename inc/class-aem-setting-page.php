@@ -29,6 +29,7 @@ class AEM_Setting_Page
         add_action( 'wp_ajax_aem_test_email', array ( $this, 'sen_test_email' ) );
         add_action( 'admin_enqueue_scripts', array ( $this, "enqueue_scripts" ) );
     }
+
     function sen_test_email(){
         //$mailer = AE_Mailing::get_instance();
         if ( isset( $_POST["test_email"] ) ) {
@@ -51,7 +52,10 @@ class AEM_Setting_Page
         }
     }
     function enqueue_scripts($hook){
-        wp_enqueue_script( 'aem_backend_script', plugins_url( "/js/setting.js", AEM_PLUGIN_FILE ), array ( "appengine" ), NULL, TRUE );
+        $current_screen = get_current_screen();        
+        if( isset( $current_screen->id ) && $current_screen->id == 'engine-settings_page_et-settings' ){
+            wp_enqueue_script( 'aem_backend_script', plugins_url( "/js/setting.js", AEM_PLUGIN_FILE ), array ( "appengine" ), NULL, true);        
+        }
         $modules = AEM()->module_factory()->get_modules();
         foreach ( $modules as $module ) {
             $module->enqueue_scripts();
