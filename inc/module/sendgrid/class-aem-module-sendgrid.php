@@ -219,7 +219,7 @@ class AEM_Module_Sendgrid extends AEM_Module_Base
         }
 
         //custom header
-        if ( isset( $args['headers'] ) ) {
+        if ( isset( $args['headers'] ) && is_array( $args['headers'] ) ) {
             //extract header line
             $header_arr = explode( "\r\n", $args['headers'] );
             foreach ( $header_arr as $header ) {
