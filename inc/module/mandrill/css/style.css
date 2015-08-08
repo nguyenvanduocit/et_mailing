@@ -1,6 +1,7 @@
 [data-icon=mandrill] {
     Border: 5px solid yellow;
 }
-.et-main-main.mandrill{
+.et-main-main.mandrill,
+.et-main-content.mandrill{
 	background: none;
 }

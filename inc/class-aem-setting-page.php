@@ -52,9 +52,11 @@ class AEM_Setting_Page
         }
     }
     function enqueue_scripts($hook){
-        $current_screen = get_current_screen();
-        if( isset( $current_screen->id ) && $current_screen->id == 'engine-settings_page_aem-settings' ){
-            wp_enqueue_script( 'aem_backend_script', plugins_url( "/js/setting.js", AEM_PLUGIN_FILE ), array ( "appengine" ), NULL, true);
+        // $current_screen = get_current_screen();
+        // if( isset( $current_screen->id ) && $current_screen->id == 'engine-settings_page_et-settings' )
+        $page_slug = isset($_GET['page']) ? $_GET['page'] : '' ;
+        if( $page_slug =='aem-settings' ) {
+             wp_enqueue_script( 'aem_backend_script', plugins_url( "/js/setting.js", AEM_PLUGIN_FILE ), array ( "appengine" ), NULL, true);
         }
         $modules = AEM()->module_factory()->get_modules();
         foreach ( $modules as $module ) {
