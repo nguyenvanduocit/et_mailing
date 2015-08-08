@@ -2662,3 +2662,6 @@ button.disabled:hover, input[type="submit"].disabled:hover, input[type="button"]
 	font-weight: 600;
 	color : #60606e;
 }
+.et-main-main.mandrill{
+	background: none;
+}
