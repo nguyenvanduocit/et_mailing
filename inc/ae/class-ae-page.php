@@ -32,6 +32,8 @@ if ( !class_exists( "AE_Page" ) ) {
 
         public function print_styles ()
         {
+            if ( !isset( $_REQUEST['page'] ) ) return;
+            if( $_REQUEST['page'] != 'aem-settings' ) return;
             $this->add_style( 'admin', ae_get_url().'/assets/css/admin.css' );
             $this->add_style( 'ae-colorpicker', ae_get_url().'/assets/css/colorpicker.css' );
             $this->add_style( 'fontawesome', ae_get_url().'/assets/css/font-awesome.min.css' );
