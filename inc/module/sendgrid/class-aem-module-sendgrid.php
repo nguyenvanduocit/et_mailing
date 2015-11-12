@@ -205,7 +205,7 @@ class AEM_Module_Sendgrid extends AEM_Module_Base
                 }
             }
         }
-
+        var_dump($header);
         if ( !isset( $header['content_type'] ) ) {
             $content_type = 'text/plain';
         } else {
@@ -244,7 +244,7 @@ class AEM_Module_Sendgrid extends AEM_Module_Base
         }
 
         $postData = apply_filters( "aem_postdata", $emailData );
-
+        var_dump($postData)
         return $postData;
     }
 
