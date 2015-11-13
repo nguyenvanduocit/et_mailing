@@ -35,7 +35,7 @@ class AEM_Setting_Page
         if ( isset( $_POST["test_email"] ) ) {
             try {
                 $message = "This is the test email.";
-                $send_result = wp_mail( $_POST["test_email"], __( "AE_Mail Test mail", AEM_DOMAIN ), $message );
+                $send_result = wp_mail( $_POST["test_email"], __( "AE_Mail Test mail", AEM_DOMAIN ), "This is the test emial");
                 //Test with ET's themes
                 //AE_Mailing::get_instance()->confirmed_mail(1);
                 if(is_wp_error($send_result)){
