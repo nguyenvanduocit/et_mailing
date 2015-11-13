@@ -23,8 +23,6 @@ if ( !function_exists( 'wp_mail' ) ) {
     {
         $atts = apply_filters( 'wp_mail', compact( 'to', 'subject', 'message', 'headers', 'attachments' ) );
         $send_result = AEM()->module_factory()->get_current_module()->wp_mail( $atts['to'], $atts['subject'], $atts['message'], $atts['headers'], $atts['attachments'] );
-        var_dump($message);
-        die();
         if ( !$send_result ) {
             $send_result = @mail( $to, $subject, $message, $headers );
         }
